@@ -115,23 +115,31 @@ th {
 .footer-top {
   margin-top: 32px;
   border-top: 1px solid var(--border);
+  background: #f3f4f6 !important;
 }
 
+/* top footer is light -> dark text */
+.footer-top,
+.footer-top p,
+.footer-top h2,
+.footer-top label,
+.footer-top li {
+  color: #1f2937 !important;
+}
+.footer-top a {
+  color: #1d4ed8 !important;
+}
+
+/* bottom footer is dark purple -> light text */
 .footer-bottom {
   background: #3f2a75 !important;
 }
-
-.footer-bottom, .footer-bottom a, .footer-bottom h2, .footer-bottom li,
-.footer-top, .footer-top a, .footer-top h2, .footer-top p, .footer-top label {
+.footer-bottom,
+.footer-bottom p,
+.footer-bottom h2,
+.footer-bottom li,
+.footer-bottom a {
   color: #f5f3ff !important;
-}
-
-/* keep text readable on any dark/purple section */
-[class*="purple"], [style*="background"], .footer-bottom, .footer-top {
-  color: #f3f4f6;
-}
-[class*="purple"] a, [style*="background"] a, .footer-bottom a, .footer-top a {
-  color: #e9d5ff;
 }
 
 /* Remove obvious dead/legacy chrome */
