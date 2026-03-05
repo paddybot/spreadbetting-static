@@ -16,8 +16,8 @@ html, body {
   background: var(--bg) !important;
   color: var(--text) !important;
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.5;
 }
 
 .container {
@@ -30,14 +30,20 @@ h1, h2, h3, h4 {
 }
 
 h1.page-header {
-  font-size: 44px !important;
-  margin-bottom: 18px !important;
+  font-size: 34px !important;
+  line-height: 1.2;
+  margin-bottom: 14px !important;
 }
 
-p { color: #374151; }
+h2 { font-size: 30px; }
+h3 { font-size: 24px; }
 
-a { color: #4f46e5; }
-a:hover { color: #3730a3; text-decoration: none; }
+/* avoid forcing dark paragraph text onto dark backgrounds */
+p { color: inherit; }
+
+/* safer link colors */
+a { color: #4338ca; }
+a:hover { color: #312e81; text-decoration: none; }
 
 /* Header/nav cleanup */
 .navbar, #navbar, .header {
@@ -107,7 +113,7 @@ th {
 
 /* Footer */
 .footer-top {
-  margin-top: 40px;
+  margin-top: 32px;
   border-top: 1px solid var(--border);
 }
 
@@ -115,8 +121,17 @@ th {
   background: #3f2a75 !important;
 }
 
-.footer-bottom, .footer-bottom a, .footer-bottom h2, .footer-bottom li {
+.footer-bottom, .footer-bottom a, .footer-bottom h2, .footer-bottom li,
+.footer-top, .footer-top a, .footer-top h2, .footer-top p, .footer-top label {
   color: #f5f3ff !important;
+}
+
+/* keep text readable on any dark/purple section */
+[class*="purple"], [style*="background"], .footer-bottom, .footer-top {
+  color: #f3f4f6;
+}
+[class*="purple"] a, [style*="background"] a, .footer-bottom a, .footer-top a {
+  color: #e9d5ff;
 }
 
 /* Remove obvious dead/legacy chrome */
