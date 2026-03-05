@@ -119,10 +119,50 @@ th {
   color: #f5f3ff !important;
 }
 
+/* Homepage hero */
+.sb-hero {
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  color: #fff;
+  padding: 28px;
+  border-radius: 14px;
+  margin: 16px 0 28px;
+  box-shadow: 0 10px 30px rgba(79,70,229,.22);
+}
+.sb-hero h2 { color: #fff; margin: 0 0 8px; font-size: 30px; }
+.sb-hero p { color: #e0e7ff; margin: 0 0 14px; }
+.sb-hero .sb-hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
+.sb-hero .sb-hero-cta a {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #fff;
+  color: #312e81;
+  font-weight: 600;
+}
+
+/* Comparison blocks become cards */
+.view-content .views-row,
+.field-collection-item-field-bottom-banner-detail,
+.field-fc-banner-ad,
+.pane-content > div {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+/* Nav polish */
+#navbar {
+  box-shadow: 0 2px 10px rgba(0,0,0,.05);
+}
+
 /* Remove obvious dead/legacy chrome */
 #skip-link,
 .breadcrumb,
 .tabs--primary,
-.feed-icon {
+.feed-icon,
+.region-sidebar-first,
+.region-sidebar-second {
   display: none !important;
 }
