@@ -491,3 +491,8 @@
       .hero-panel{min-height: 460px}
     }
   
+nav ul li{position:relative}
+nav ul li .submenu{display:none;position:absolute;top:120%;left:0;min-width:220px;background:#101a35;border:1px solid #263a72;border-radius:10px;padding:8px;z-index:30}
+nav ul li .submenu li{list-style:none}
+nav ul li .submenu a{display:block;padding:8px 10px;font-size:13px;white-space:nowrap}
+nav ul li:hover .submenu{display:block}
