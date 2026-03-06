@@ -1,852 +1,246 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SpreadBetting.com — New Mockup</title>
-  <meta name="description" content="Modern mockup homepage for SpreadBetting.com" />
-  <style>
-    :root{
-      --bg0:#070A12;
-      --bg1:#0A1020;
-      --card:#0E1730cc;
-      --card2:#0C1327cc;
-      --stroke:#1E2B50;
-      --text:#EAF0FF;
-      --muted:#A8B3D6;
-      --brand:#2D6BFF;
-      --brand2:#8A5CFF;
-      --good:#2BE38D;
-      --bad:#FF4D6D;
-      --warn:#FFB020;
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --shadow2: 0 10px 30px rgba(0,0,0,.45);
-      --radius: 18px;
-      --radius2: 14px;
-      --max: 1120px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background:
-        radial-gradient(1200px 700px at 70% 15%, rgba(138,92,255,.28), transparent 55%),
-        radial-gradient(1000px 650px at 15% 10%, rgba(45,107,255,.22), transparent 60%),
-        radial-gradient(900px 700px at 70% 55%, rgba(255,77,109,.14), transparent 55%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      overflow-x:hidden;
-    }
-
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
-    .glass{
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.10);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadow2);
-      border-radius: var(--radius);
-    }
-    .chip{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      color:var(--muted);
-      font-size:12px;
-    }
-    .dot{
-      width:7px; height:7px; border-radius:50%;
-      background:linear-gradient(180deg, var(--brand), var(--brand2));
-      box-shadow: 0 0 0 6px rgba(45,107,255,.12);
-    }
-
-    /* Top Nav */
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(12px);
-      background: linear-gradient(180deg, rgba(7,10,18,.75), rgba(7,10,18,.35));
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:14px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      font-weight:800; letter-spacing:.3px;
-    }
-    .mark{
-      width:34px; height:34px; border-radius:10px;
-      background:
-        linear-gradient(135deg, rgba(45,107,255,1), rgba(138,92,255,1));
-      position:relative;
-      box-shadow: 0 10px 25px rgba(45,107,255,.18);
-    }
-    .mark:before,.mark:after{
-      content:"";
-      position:absolute; left:8px; right:8px;
-      height:4px; border-radius:3px;
-      background:rgba(255,255,255,.92);
-      transform:skewX(-18deg);
-    }
-    .mark:before{top:10px; opacity:.95}
-    .mark:after{top:20px; opacity:.75}
-    .brand span small{display:block; font-weight:600; color:var(--muted); letter-spacing:.2px; margin-top:1px}
-
-    nav ul{
-      list-style:none; padding:0; margin:0;
-      display:flex; align-items:center; gap:18px;
-      color:rgba(234,240,255,.92);
-      font-weight:650;
-      font-size:14px;
-    }
-    nav a{
-      display:inline-flex; align-items:center; gap:6px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid transparent;
-      color:rgba(234,240,255,.86);
-    }
-    nav a:hover{
-      border-color: rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-    }
-    .caret{
-      width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid rgba(234,240,255,.65);
-      margin-top:1px;
-    }
-    .nav-right{display:flex; align-items:center; gap:10px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      height:38px; padding:0 14px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      font-weight:700;
-      font-size:14px;
-      cursor:pointer;
-      transition:.18s ease;
-    }
-    .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.08)}
-    .btn.primary{
-      border-color: rgba(45,107,255,.38);
-      background: linear-gradient(135deg, rgba(45,107,255,1), rgba(138,92,255,1));
-      box-shadow: 0 16px 45px rgba(45,107,255,.22);
-    }
-    .btn.primary:hover{filter: brightness(1.06)}
-    .hamburger{display:none}
-
-    /* Hero */
-    .hero{
-      position:relative;
-      padding:34px 0 0;
-    }
-    .hero-panel{
-      position:relative;
-      border-radius: 26px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow: var(--shadow);
-      background:
-        radial-gradient(800px 420px at 65% 40%, rgba(45,107,255,.30), transparent 55%),
-        radial-gradient(700px 420px at 45% 65%, rgba(255,77,109,.16), transparent 60%),
-        linear-gradient(180deg, rgba(15,20,40,.55), rgba(7,10,18,.75));
-      min-height: 420px;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 22px;
-      padding: 34px 26px 26px;
-      align-items: center;
-    }
-    .hero h1{
-      margin:10px 0 10px;
-      font-size: clamp(34px, 4.2vw, 54px);
-      line-height:1.05;
-      letter-spacing:-.6px;
-    }
-    .hero p{
-      margin:0 0 18px;
-      color: rgba(234,240,255,.80);
-      font-size: 16px;
-      line-height: 1.6;
-      max-width: 46ch;
-    }
-    .cta-row{display:flex; gap:12px; flex-wrap:wrap}
-    .subnote{margin-top:16px; display:flex; gap:10px; flex-wrap:wrap}
-    .hero-art{
-      position:relative;
-      height: 320px;
-      border-radius: 20px;
-      border:1px solid rgba(255,255,255,.12);
-      background:
-        radial-gradient(700px 420px at 55% 50%, rgba(0,0,0,.45), rgba(0,0,0,.25)),
-        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      overflow:hidden;
-    }
-
-    /* Faux chart */
-    .chart{
-      position:absolute; inset:0;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px) 0 0 / 42px 42px,
-        linear-gradient(0deg, rgba(255,255,255,.04) 1px, transparent 1px) 0 0 / 42px 42px;
-      opacity:.9;
-    }
-    .candles{
-      position:absolute; inset:18px 16px 22px 16px;
-      display:flex; align-items:flex-end; gap:10px;
-      filter: drop-shadow(0 20px 35px rgba(0,0,0,.45));
-      opacity:.92;
-    }
-    .candle{
-      width: 10px;
-      border-radius: 6px;
-      position:relative;
-      background: rgba(255,255,255,.18);
-    }
-    .candle::before{
-      content:"";
-      position:absolute; left:50%; transform:translateX(-50%);
-      width:2px;
-      top:-18px; bottom:-18px;
-      background: rgba(255,255,255,.18);
-      border-radius:2px;
-      opacity:.55;
-    }
-    .candle.up{background: linear-gradient(180deg, rgba(43,227,141,1), rgba(43,227,141,.35))}
-    .candle.down{background: linear-gradient(180deg, rgba(255,77,109,1), rgba(255,77,109,.35))}
-    .ma{
-      position:absolute; left:-5%; right:-5%;
-      height: 2px;
-      border-radius:999px;
-      background: linear-gradient(90deg, transparent, rgba(45,107,255,.9), rgba(255,255,255,.25), transparent);
-      top: 55%;
-      transform: rotate(-6deg);
-      opacity:.9;
-    }
-    .ma2{
-      position:absolute; left:-5%; right:-5%;
-      height: 2px;
-      border-radius:999px;
-      background: linear-gradient(90deg, transparent, rgba(255,77,109,.75), rgba(255,255,255,.20), transparent);
-      top: 66%;
-      transform: rotate(-2deg);
-      opacity:.8;
-    }
-    .glow{
-      position:absolute; inset:auto -20% -40% -20%;
-      height: 260px;
-      background: radial-gradient(closest-side, rgba(255,77,109,.35), transparent 70%);
-      filter: blur(6px);
-      opacity:.6;
-    }
-    .hero-footer{
-      border-top:1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(7,10,18,.10), rgba(7,10,18,.35));
-      padding: 10px 14px;
-    }
-
-    /* Ticker */
-    .ticker{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:10px;
-      overflow:auto;
-      scrollbar-width:none;
-    }
-    .ticker::-webkit-scrollbar{display:none}
-    .tick{
-      min-width: 210px;
-      display:flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding: 10px 8px;
-      color: rgba(234,240,255,.86);
-      font-size: 13px;
-      font-weight:700;
-      white-space:nowrap;
-    }
-    .tick b{color:rgba(234,240,255,.92)}
-    .chg{
-      font-weight:800; font-size:12px;
-      padding:4px 8px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.06);
-    }
-    .chg.up{color:var(--good)}
-    .chg.down{color:var(--bad)}
-
-    /* Sections */
-    section{padding: 26px 0}
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap:14px;
-      margin: 6px 0 14px;
-    }
-    .section-title h2{
-      margin:0;
-      font-size: 22px;
-      letter-spacing:-.2px;
-    }
-    .section-title p{
-      margin:0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* Brokers */
-    .grid-5{
-      display:grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
-    }
-    .card{
-      border-radius: var(--radius);
-      border:1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-      box-shadow: var(--shadow2);
-      overflow:hidden;
-    }
-    .broker{
-      padding: 14px 14px 12px;
-      min-height: 220px;
-      display:flex; flex-direction:column; gap:10px;
-    }
-    .logo{
-      height: 44px;
-      border-radius: 14px;
-      display:flex; align-items:center; justify-content:center;
-      font-weight:900;
-      letter-spacing:.6px;
-      background: rgba(0,0,0,.22);
-      border:1px solid rgba(255,255,255,.10);
-      color: rgba(234,240,255,.92);
-    }
-    .logo.ig{background: linear-gradient(135deg, rgba(255,74,74,.95), rgba(255,138,0,.22))}
-    .logo.cmc{background: linear-gradient(135deg, rgba(90,220,255,.95), rgba(0,0,0,.22))}
-    .logo.pep{background: linear-gradient(135deg, rgba(255,64,64,.65), rgba(255,255,255,.12))}
-    .logo.city{background: linear-gradient(135deg, rgba(255,209,41,.92), rgba(0,0,0,.22))}
-    .logo.spreadex{background: linear-gradient(135deg, rgba(255,255,255,.28), rgba(0,0,0,.22))}
-    .rating{
-      display:flex; align-items:center; justify-content:space-between;
-      font-weight:800;
-    }
-    .stars{color: rgba(255, 205, 78, .95); letter-spacing:1px; font-size:13px}
-    .meta{
-      color: rgba(234,240,255,.78);
-      font-size: 12px;
-      line-height: 1.5;
-    }
-    .meta span{color: var(--muted)}
-    .broker .btn{
-      margin-top:auto;
-      height: 40px;
-      border-radius: 12px;
-      font-weight:800;
-      width:100%;
-    }
-
-    /* Feature cards */
-    .grid-4{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-    .feature{
-      padding: 14px;
-      display:flex; gap:12px;
-      align-items:flex-start;
-      min-height: 92px;
-    }
-    .icon{
-      width:40px; height:40px; border-radius: 14px;
-      display:grid; place-items:center;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      flex:0 0 auto;
-      font-size: 18px;
-    }
-    .feature h3{
-      margin:0 0 3px;
-      font-size: 14px;
-      letter-spacing:-.1px;
-    }
-    .feature p{
-      margin:0;
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.45;
-    }
-
-    /* Learn row */
-    .grid-4-tight{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-    .learn{
-      padding: 14px;
-      display:flex; align-items:center; gap:12px;
-      min-height: 70px;
-    }
-    .learn b{font-size: 13px}
-    .learn small{
-      display:block;
-      color: var(--muted);
-      font-size: 12px;
-      margin-top:2px;
-    }
-
-    /* News */
-    .grid-4-news{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-    .news{
-      overflow:hidden;
-    }
-    .thumb{
-      height: 120px;
-      background:
-        radial-gradient(800px 180px at 20% 20%, rgba(45,107,255,.35), transparent 55%),
-        radial-gradient(800px 180px at 80% 30%, rgba(255,77,109,.25), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-      border-bottom:1px solid rgba(255,255,255,.10);
-      position:relative;
-    }
-    .thumb:after{
-      content:"";
-      position:absolute; inset:12px 12px auto auto;
-      width:44px; height:44px; border-radius: 16px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      backdrop-filter: blur(8px);
-    }
-    .news-body{
-      padding: 12px 14px 14px;
-    }
-    .news-body h3{
-      margin:0 0 6px;
-      font-size: 14px;
-      line-height: 1.25;
-      letter-spacing:-.1px;
-    }
-    .news-body .date{
-      color: var(--muted);
-      font-size: 12px;
-      display:flex; align-items:center; gap:8px;
-    }
-
-    /* Footer */
-    footer{
-      padding: 28px 0 40px;
-      color: rgba(168,179,214,.85);
-      border-top:1px solid rgba(255,255,255,.08);
-      background: linear-gradient(180deg, rgba(7,10,18,.10), rgba(7,10,18,.55));
-    }
-    .foot-grid{
-      display:grid;
-      grid-template-columns: 1.2fr 1fr 1fr 1fr;
-      gap: 18px;
-    }
-    .foot-grid h4{margin:0 0 10px; color:rgba(234,240,255,.92)}
-    .foot-grid a{display:block; padding:6px 0; color:rgba(168,179,214,.92)}
-    .foot-grid a:hover{color:rgba(234,240,255,.95)}
-    .disclaimer{
-      margin-top:18px;
-      font-size: 12px;
-      color: rgba(168,179,214,.78);
-      line-height: 1.55;
-      max-width: 90ch;
-    }
-
-    /* Responsive */
-    @media (max-width: 1100px){
-      .grid-5{grid-template-columns: repeat(3, 1fr)}
-      .grid-4{grid-template-columns: repeat(2, 1fr)}
-      .grid-4-tight{grid-template-columns: repeat(2, 1fr)}
-      .grid-4-news{grid-template-columns: repeat(2, 1fr)}
-      .hero-grid{grid-template-columns: 1fr; }
-      .hero-art{height: 260px}
-      .foot-grid{grid-template-columns: 1.2fr 1fr}
-    }
-    @media (max-width: 720px){
-      nav ul{display:none}
-      .hamburger{
-        display:inline-flex;
-        width:42px; height:38px;
-        border-radius:12px;
-        border:1px solid rgba(255,255,255,.14);
-        background: rgba(255,255,255,.06);
-        align-items:center; justify-content:center;
-        cursor:pointer;
-      }
-      .grid-5{grid-template-columns: 1fr}
-      .grid-4{grid-template-columns: 1fr}
-      .grid-4-tight{grid-template-columns: 1fr}
-      .grid-4-news{grid-template-columns: 1fr}
-      .tick{min-width: 180px; justify-content:flex-start; padding-left:14px}
-      .hero-panel{min-height: 460px}
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SpreadBetting.com | Learn, Compare, Trade Smarter</title>
+  <meta name="description" content="A modern, educational hub for spread betting. Learn the basics, compare providers transparently, and understand risk before you trade." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/homepage-v2.css" />
 </head>
-
 <body>
-  <header>
-    <div class="wrap">
-      <div class="nav">
-        <a class="brand" href="./index.html">
-          <div class="mark" aria-hidden="true"></div>
-          <span>
-            SPREADBETTING.com
-            <small>Compare • Learn • Trade</small>
-          </span>
-        </a>
+  <div class="risk-strip" role="note" aria-label="Risk warning">
+    Spread betting carries a high level of risk and may not be suitable for all investors. You can lose more than your initial deposit.
+  </div>
 
-        <nav aria-label="Primary">
-          <ul>
-            <li><a href="./compare-and-trade.html"><span>Compare &amp; Trade</span></a></li>
-            <li><a href="./spread-betting-tips.html"><span>Strategies</span></a></li>
-            <li><a href="./improve-your-skills.html"><span>Education</span></a></li>
-            <li><a href="/the-smart-trader.html"><span>News</span></a></li>
-          </ul>
-        </nav>
-
-        <div class="nav-right">
-          <a class="btn primary" href="./compare-and-trade.html">Compare Brokers</a>
-          <button class="hamburger" type="button" aria-label="Open menu">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(234,240,255,.9)" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </button>
-        </div>
-      </div>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="/" aria-label="SpreadBetting home">Spread<span>Betting</span></a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#learn">Learn</a></li>
+          <li><a href="#compare">Compare Providers</a></li>
+          <li><a href="#guides">Guides</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-primary" href="#compare">Compare Providers</a>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <div class="hero">
-      <div class="wrap">
-        <div class="hero-panel">
-          <div class="hero-grid">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="kicker">Independent spread betting education</p>
+          <h1>Learn Spread Betting.<br />Compare Providers.<br />Trade Smarter.</h1>
+          <p class="hero-copy">Understand the fundamentals, compare platforms using transparent criteria, and put risk management first before placing any trade.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#compare">Compare Providers</a>
+            <a class="btn btn-secondary" href="#learn">Start Learning</a>
+          </div>
+        </div>
+
+        <aside class="snapshot" aria-label="Top providers snapshot">
+          <h2>Top Providers Snapshot</h2>
+          <p class="small">Editorial shortlist · updated March 2026</p>
+
+          <article class="provider-row">
             <div>
-              <span class="chip"><span class="dot" aria-hidden="true"></span> Live market snapshot • Updated moments ago</span>
-              <h1>Spread Betting Intelligence</h1>
-              <p>Learn the basics, compare providers, and level up with strategies and market analysis — in a modern, fast, mobile-first experience.</p>
-              <div class="cta-row">
-                <a class="btn primary" href="./compare-and-trade.html">Compare Brokers</a>
-                <a class="btn" href="./what-is-spread-betting.html">Learn Spread Betting</a>
-              </div>
-              <div class="subnote">
-                <span class="chip">UK focus</span>
-                <span class="chip">Beginner friendly</span>
-                <span class="chip">Broker reviews</span>
-              </div>
+              <h3>IG</h3>
+              <p>Best for market depth</p>
             </div>
+            <a href="#compare">Read review</a>
+          </article>
 
-            <div class="hero-art" aria-label="Decorative chart">
-              <div class="chart" aria-hidden="true"></div>
-              <div class="ma" aria-hidden="true"></div>
-              <div class="ma2" aria-hidden="true"></div>
-              <div class="glow" aria-hidden="true"></div>
-
-              <div class="candles" id="candles" aria-hidden="true">
-                <!-- Filled by JS for a nice varied look -->
-              </div>
+          <article class="provider-row">
+            <div>
+              <h3>CMC Markets</h3>
+              <p>Best for platform tooling</p>
             </div>
-          </div>
+            <a href="#compare">Read review</a>
+          </article>
 
-          <div class="hero-footer">
-            <div class="ticker" aria-label="Market ticker">
-              <div class="tick"><b>FTSE 100</b> <span class="chg up">▲ 0.82%</span></div>
-              <div class="tick"><b>S&amp;P 500</b> <span class="chg down">▼ 0.15%</span></div>
-              <div class="tick"><b>Gold</b> <span class="chg up">▲ 0.28%</span></div>
-              <div class="tick"><b>EUR/USD</b> <span class="chg up">▲ 0.01%</span></div>
+          <article class="provider-row">
+            <div>
+              <h3>Spreadex</h3>
+              <p>Best for straightforward pricing</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- BROKERS -->
-    <section>
-      <div class="wrap">
-        <div class="section-title">
-          <div>
-            <h2>Top Spread Betting Brokers</h2>
-            <p>Quick picks to get started. We can tune broker rows and fields next.</p>
-          </div>
-        </div>
-
-        <div class="grid-5">
-          <div class="card broker">
-            <div class="logo ig">IG</div>
-            <div class="rating"><span>4.8</span><span class="stars">★★★★★</span></div>
-            <div class="meta">
-              <div><span>Spread</span> from <b>0.6 pts</b></div>
-              <div><span>Min. deposit</span> <b>£250</b></div>
-            </div>
-            <a class="btn primary" href="./special-offers.html">View Broker</a>
-          </div>
-
-          <div class="card broker">
-            <div class="logo cmc">CMC</div>
-            <div class="rating"><span>4.7</span><span class="stars">★★★★★</span></div>
-            <div class="meta">
-              <div><span>Spread</span> from <b>0.5 pts</b></div>
-              <div><span>Min. deposit</span> <b>£0</b></div>
-            </div>
-            <a class="btn" href="./special-offers.html">View Broker</a>
-          </div>
-
-          <div class="card broker">
-            <div class="logo pep">P Pepperstone</div>
-            <div class="rating"><span>4.6</span><span class="stars">★★★★★</span></div>
-            <div class="meta">
-              <div><span>Spread</span> from <b>0.5 pts</b></div>
-              <div><span>Min. deposit</span> <b>£0</b></div>
-            </div>
-            <a class="btn" href="./special-offers.html">View Broker</a>
-          </div>
-
-          <div class="card broker">
-            <div class="logo city">CITY INDEX</div>
-            <div class="rating"><span>4.5</span><span class="stars">★★★★★</span></div>
-            <div class="meta">
-              <div><span>Spread</span> from <b>0.5 pts</b></div>
-              <div><span>Min. deposit</span> <b>£100</b></div>
-            </div>
-            <a class="btn" href="./special-offers.html">View Broker</a>
-          </div>
-
-          <div class="card broker">
-            <div class="logo spreadex">SPREADEX</div>
-            <div class="rating"><span>4.4</span><span class="stars">★★★★★</span></div>
-            <div class="meta">
-              <div><span>Spread</span> from <b>0.4 pts</b></div>
-              <div><span>Min. deposit</span> <b>£1</b></div>
-            </div>
-            <a class="btn" href="./special-offers.html">View Broker</a>
-          </div>
-        </div>
+            <a href="#compare">Read review</a>
+          </article>
+        </aside>
       </div>
     </section>
 
-    <!-- WHY -->
-    <section>
-      <div class="wrap">
-        <div class="section-title">
-          <div>
-            <h2>Why Spread Betting?</h2>
-            <p>Clear benefits, shown with modern card UI and icons.</p>
-          </div>
+    <section id="learn" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Start Here</h2>
+          <p>Choose your path based on where you are now.</p>
         </div>
 
-        <div class="grid-4">
-          <div class="card feature">
-            <div class="icon">🧾</div>
-            <div>
-              <h3>Tax-Free Profits (UK)</h3>
-              <p>No capital gains tax on profits (UK rules apply).</p>
-            </div>
-          </div>
-
-          <div class="card feature">
-            <div class="icon">↕️</div>
-            <div>
-              <h3>Go Long or Short</h3>
-              <p>Trade rising and falling markets with one account.</p>
-            </div>
-          </div>
-
-          <div class="card feature">
-            <div class="icon">🌍</div>
-            <div>
-              <h3>Thousands of Markets</h3>
-              <p>Indices, forex, shares, commodities, crypto and more.</p>
-            </div>
-          </div>
-
-          <div class="card feature">
-            <div class="icon">📈</div>
-            <div>
-              <h3>Low Margin Trading</h3>
-              <p>Get exposure with leverage — manage risk carefully.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LEARN -->
-    <section>
-      <div class="wrap">
-        <div class="section-title">
-          <div>
-            <h2>Learn Spread Betting</h2>
-            <p>Education entry points as compact “pill cards”.</p>
-          </div>
-        </div>
-
-        <div class="grid-4-tight">
-          <a class="card learn" href="./what-is-spread-betting.html">
-            <div class="icon">📘</div>
-            <div>
-              <b>What is Spread Betting?</b>
-              <small>Start here if you’re new.</small>
-            </div>
-          </a>
-          <a class="card learn" href="./spread-betting-tips.html">
-            <div class="icon">🎯</div>
-            <div>
-              <b>Trading Strategies</b>
-              <small>Setups, indicators, plan.</small>
-            </div>
-          </a>
-          <a class="card learn" href="./improve-your-skills/intermediate/stop-placement-and-scaling.html">
-            <div class="icon">🛡️</div>
-            <div>
-              <b>Risk Management</b>
-              <small>Stops, sizing, psychology.</small>
-            </div>
-          </a>
-          <a class="card learn" href="./what-is-spread-betting.html">
-            <div class="icon">🧭</div>
-            <div>
-              <b>Beginner’s Guide</b>
-              <small>Glossary + first trade.</small>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- NEWS -->
-    <section>
-      <div class="wrap">
-        <div class="section-title">
-          <div>
-            <h2>Latest News &amp; Analysis</h2>
-            <p>Fresh editorial layout with cleaner cards and spacing.</p>
-          </div>
-          <a class="btn primary" href="/the-smart-trader.html">View All News</a>
-        </div>
-
-        <div class="grid-4-news">
-          <article class="card news">
-            <div class="thumb" role="img" aria-label="FTSE skyline thumbnail"></div>
-            <div class="news-body">
-              <h3>FTSE 100 Outlook: Key Levels to Watch</h3>
-              <div class="date">📅 Apr 5, 2024</div>
-            </div>
+        <div class="card-grid three">
+          <article class="card">
+            <p class="icon">📘</p>
+            <h3>New to spread betting?</h3>
+            <p>Get the basics, key terms, and how prices are quoted.</p>
+            <a href="#">Read: What is spread betting →</a>
           </article>
 
-          <article class="card news">
-            <div class="thumb" role="img" aria-label="EUR/USD chart thumbnail"></div>
-            <div class="news-body">
-              <h3>EUR/USD Technical Analysis: Trends &amp; Targets</h3>
-              <div class="date">📅 Apr 3, 2024</div>
-            </div>
+          <article class="card">
+            <p class="icon">📊</p>
+            <h3>Compare providers</h3>
+            <p>Review spreads, platform quality, and market access side-by-side.</p>
+            <a href="#compare">View comparison →</a>
           </article>
 
-          <article class="card news">
-            <div class="thumb" role="img" aria-label="Spread betting tips thumbnail"></div>
-            <div class="news-body">
-              <h3>Top Spread Betting Tips for 2024</h3>
-              <div class="date">📅 Apr 1, 2024</div>
-            </div>
-          </article>
-
-          <article class="card news">
-            <div class="thumb" role="img" aria-label="Markets overview thumbnail"></div>
-            <div class="news-body">
-              <h3>Top Spread Betting Tips for 2024</h3>
-              <div class="date">📅 Apr 1, 2024</div>
-            </div>
+          <article class="card">
+            <p class="icon">🛡️</p>
+            <h3>Risk management first</h3>
+            <p>Position sizing, leverage risk, and stop-loss discipline.</p>
+            <a href="#">Read risk guide →</a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-      <div class="wrap">
-        <div class="foot-grid">
-          <div>
-            <div class="brand" style="margin-bottom:10px">
-              <div class="mark" aria-hidden="true"></div>
-              <span>SPREADBETTING.com<small>Clean 2026 baseline</small></span>
-            </div>
-            <div class="disclaimer">
-              <b>Risk warning:</b> Spread betting involves high risk and can result in losses exceeding your deposits.
-              Broker data and content can now be expanded page-by-page from the existing static site.
-            </div>
-          </div>
+    <section id="compare" class="section section-muted">
+      <div class="container">
+        <div class="section-head">
+          <h2>Comparison Snapshot</h2>
+          <p>Transparent criteria. No hidden weighting.</p>
+        </div>
 
-          <div>
-            <h4>Brokers</h4>
-            <a href="./compare-and-trade.html">Compare brokers</a>
-            <a href="./special-offers.html">Broker reviews</a>
-            <a href="./financial-glossary.html">Fees &amp; spreads</a>
-            <a href="./demo-accounts.html">Platforms</a>
-          </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Provider</th>
+                <th>Markets</th>
+                <th>Platform</th>
+                <th>Typical Spread (Index)</th>
+                <th>Best For</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>IG</td>
+                <td>Indices, FX, Shares, Commodities</td>
+                <td>Web + Mobile</td>
+                <td>Low / competitive</td>
+                <td>Active multi-market traders</td>
+              </tr>
+              <tr>
+                <td>CMC Markets</td>
+                <td>Indices, FX, Shares, Commodities</td>
+                <td>Advanced charting</td>
+                <td>Low / competitive</td>
+                <td>Technical traders</td>
+              </tr>
+              <tr>
+                <td>Spreadex</td>
+                <td>Indices, FX, Equities</td>
+                <td>Simple, clean UI</td>
+                <td>Competitive</td>
+                <td>Beginner-intermediate users</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-          <div>
-            <h4>Education</h4>
-            <a href="./what-is-spread-betting.html">Beginner guide</a>
-            <a href="./spread-betting-tips.html">Strategies</a>
-            <a href="./improve-your-skills/intermediate/stop-placement-and-scaling.html">Risk management</a>
-            <a href="./financial-glossary.html">Glossary</a>
-          </div>
+        <p class="small disclosure">Example test data for prototype only. Full methodology and up-to-date pricing should be published before production launch.</p>
+        <a class="btn btn-primary" href="#">View Full Comparison</a>
+      </div>
+    </section>
 
-          <div>
-            <h4>Company</h4>
-            <a href="./about-us-spreadbetting.html">About</a>
-            <a href="./about-us-spreadbetting.html">Contact</a>
-            <a href="./privacy-policy.html">Privacy</a>
-            <a href="./terms-conditions.html">Terms</a>
-          </div>
+    <section class="section">
+      <div class="container trust-strip">
+        <div>
+          <h3>How we rank providers</h3>
+          <p>Weighting based on spreads, platform quality, market depth, execution tools, and transparency.</p>
+        </div>
+        <div>
+          <h3>Editorial independence</h3>
+          <p>Commercial relationships do not override ranking methodology.</p>
+        </div>
+        <div>
+          <h3>Compliance first</h3>
+          <p>Clear risk warnings, affiliate disclosure, and update timestamps on every guide.</p>
         </div>
       </div>
-    </footer>
+    </section>
+
+    <section id="guides" class="section section-muted">
+      <div class="container">
+        <div class="section-head">
+          <h2>Featured Guides</h2>
+          <p>Evergreen content designed for practical trading decisions.</p>
+        </div>
+
+        <div class="card-grid two">
+          <article class="card guide">
+            <h3>What is spread betting?</h3>
+            <p>8 min read · Updated 06 Mar 2026</p>
+          </article>
+          <article class="card guide">
+            <h3>Risk &amp; money management</h3>
+            <p>11 min read · Updated 06 Mar 2026</p>
+          </article>
+          <article class="card guide">
+            <h3>Common mistakes to avoid</h3>
+            <p>9 min read · Updated 06 Mar 2026</p>
+          </article>
+          <article class="card guide">
+            <h3>Beginner strategy framework</h3>
+            <p>10 min read · Updated 06 Mar 2026</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>FAQs</h2>
+        </div>
+
+        <details>
+          <summary>Is spread betting legal in the UK?</summary>
+          <p>Yes, with regulated providers. Always verify FCA authorisation and product suitability.</p>
+        </details>
+        <details>
+          <summary>Can I lose more than my deposit?</summary>
+          <p>Yes. Leverage can magnify losses, so risk controls are essential.</p>
+        </details>
+        <details>
+          <summary>How do you rank providers?</summary>
+          <p>Using a fixed methodology: pricing, execution quality, platform features, and market coverage.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="about" class="section cta-end">
+      <div class="container cta-box">
+        <h2>Ready to compare providers?</h2>
+        <p>Explore side-by-side comparisons with transparent scoring and practical guidance.</p>
+        <a class="btn btn-primary" href="#compare">Compare Providers</a>
+      </div>
+    </section>
   </main>
 
-  <script>
-    // Simple candle generator to make the hero chart feel alive without images.
-    (function(){
-      const container = document.getElementById("candles");
-      if(!container) return;
-
-      // Deterministic "random" for consistent mockup rendering
-      let seed = 1337;
-      const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-
-      const count = 18;
-      for(let i=0;i<count;i++){
-        const el = document.createElement("div");
-        const isUp = rand() > 0.38;
-        el.className = "candle " + (isUp ? "up" : "down");
-
-        // Height curve upward to mimic the screenshot trend
-        const base = 30 + i * 8;
-        const wobble = (rand() * 26) - 10;
-        const h = Math.max(18, Math.min(220, base + wobble));
-
-        el.style.height = h + "px";
-        el.style.opacity = (0.75 + rand() * 0.25).toFixed(2);
-        container.appendChild(el);
-      }
-    })();
-  </script>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p>© 2026 SpreadBetting.com (Prototype)</p>
+      <ul>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Risk Warning</a></li>
+        <li><a href="#">Affiliate Disclosure</a></li>
+      </ul>
+    </div>
+  </footer>
 </body>
 </html>
